@@ -6,8 +6,146 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: alienscript;
-  color: white; }
+  color: white;
+  overflow: hidden; }
 
+.grid {
+  position: relative;
+  grid-template-columns: 175px 1fr 1fr;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 175px 1fr 1fr;
+  grid-template-rows: 1fr 1.66fr 2fr; }
+
+@keyframes grid-animate {
+  0% {
+    grid-template-columns: 0px 1fr 0fr; }
+  100% {
+    grid-template-columns: 175px 1fr 1fr; } }
+.sidebar {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: span 3;
+  overflow: hidden;
+  opacity: 0; }
+
+.colorblock1 {
+  animation: main-image-sidewipe .9s ease both, main-image-wipe .9s 1.5s ease forwards;
+  background-color: #4B3E65;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4; }
+
+.colorblock2 {
+  animation: side-image-wipe .9s 1.5s ease forwards;
+  background-color: #1a1a1a;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2; }
+
+.colorblock3 {
+  animation: side-image-wipe .9s 1.5s ease forwards;
+  background-color: #1a1a1a;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3; }
+
+.colorblock4 {
+  animation: side-image-wipe .9s 1.5s ease forwards;
+  background-color: #1a1a1a;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4; }
+
+@keyframes main-image-wipe {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: bottom; }
+  100% {
+    transform: rotateX(90deg);
+    transform-origin: bottom; } }
+@keyframes main-image-sidewipe {
+  0% {
+    transform: rotateY(90deg);
+    transform-origin: left; }
+  100% {
+    transform: rotateY(0deg);
+    transform-origin: left; } }
+@keyframes side-image-wipe {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: top; }
+  100% {
+    transform: rotateX(90deg);
+    transform-origin: top; } }
+@keyframes side-image-topwipe {
+  0% {
+    transform: rotateY(90deg);
+    transform-origin: bottom; }
+  100% {
+    transform: rotateY(0deg);
+    transform-origin: bottom; } }
+.main-image {
+  z-index: 0;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  overflow: hidden;
+  opacity: 0;
+  animation: main-image .1s .9s ease both; }
+  .main-image img {
+    height: 100%; }
+
+.image-top {
+  background-color: blue;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2; }
+
+.image-middle {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  overflow: hidden; }
+  .image-middle img {
+    width: 100%; }
+    .image-middle img body {
+      background-color: lightblue; }
+
+.image-bottom {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  overflow: hidden; }
+  .image-bottom video {
+    height: 100%; }
+
+@keyframes main-image {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .video-container {
   position: absolute;
   top: 0;
@@ -34,16 +172,14 @@ body {
   margin-top: 50%;
   text-align: center; }
 
-/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */
 @keyframes flyIn {
   from {
     transform: translateX(-2000px); }
   to {
     transform: translateX(0px); } }
 #tridiv {
-  animation-delay: 25s;
   animation-name: flyIn;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-fill-mode: both;
   perspective: 800px;
   position: absolute;
@@ -295,47 +431,47 @@ body {
     animation-fill-mode: forwards; }
 @keyframes anim-text-flow-keys {
   0% {
-    color: #705cd6; }
+    color: #d65c99; }
   5% {
-    color: #5cd695; }
+    color: #745cd6; }
   10% {
-    color: #d65c91; }
+    color: #d65cd4; }
   15% {
-    color: #5cd662; }
+    color: #d65c99; }
   20% {
-    color: #5cd6c0; }
+    color: #d65cc6; }
   25% {
-    color: #5cd6d2; }
+    color: #c0d65c; }
   30% {
-    color: #d65cc0; }
+    color: #5c8bd6; }
   35% {
-    color: #b15cd6; }
+    color: #9bd65c; }
   40% {
-    color: #83d65c; }
+    color: #d6915c; }
   45% {
-    color: #5cd6b4; }
+    color: #d6b45c; }
   50% {
-    color: #d05cd6; }
+    color: #6ed65c; }
   55% {
-    color: #d6645c; }
+    color: #d65e5c; }
   60% {
-    color: #9fd65c; }
+    color: #d65c5c; }
   65% {
-    color: #d6a35c; }
+    color: #d65c7e; }
   70% {
-    color: #d65c72; }
+    color: #5c9bd6; }
   75% {
-    color: #d65c64; }
+    color: #5cd68d; }
   80% {
-    color: #b85cd6; }
+    color: #6cd65c; }
   85% {
-    color: #d0d65c; }
+    color: #685cd6; }
   90% {
-    color: #5c85d6; }
+    color: #5cd68b; }
   95% {
-    color: #d65c85; }
+    color: #d6b15c; }
   100% {
-    color: #d6be5c; } }
+    color: #87d65c; } }
   .anim-text-flow span:nth-of-type(1),
   .anim-text-flow-hover:hover span:nth-of-type(1) {
     animation-delay: -19.8s; }
@@ -668,5 +804,10 @@ a {
   color: #eee;
   font-size: 15px;
   line-height: 15px; }
+
+@media only screen and (max-width: 124.36vh) {
+  .image-middle img {
+    height: 100%;
+    width: auto; } }
 
 /*# sourceMappingURL=output.css.map */
